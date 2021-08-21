@@ -1,6 +1,7 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import {filterImageFromURL, deleteLocalFiles} from './util/util';
+import { ImageRouter } from './controllers/image/routes/image.router';
 
 (async () => {
 
@@ -30,7 +31,8 @@ import {filterImageFromURL, deleteLocalFiles} from './util/util';
   /**************************************************************************** */
 
   //! END @TODO1
-  
+  // SOLUTION STARTS
+  app.use( "/filteredimage", ImageRouter);
   // Root Endpoint
   // Displays a simple message to the user
   app.get( "/", async ( req, res ) => {
